@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uncut Mastery | Excellence en E-commerce - Basé en Haïti</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ===== VARIABLES & RESET ===== */
+        :root {
+            --primary: #7c3aed;
+            --primary-dark: #5b21b6;
+            --primary-light: #8b5cf6;
+            --secondary: #111827;
+            --accent: #f59e0b;
+            --accent-haiti: #00209f; /* Bleu Haïti */
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --success: #10b981;
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            --gradient-dark: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+            --gradient-haiti: linear-gradient(135deg, #00209f 0%, #d21034 100%); /* Drapeau Haïti */
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+            --shadow-xl: 0 30px 60px rgba(124, 58, 237, 0.15);
+            --radius: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 36px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            z-index: -1;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-haiti {
+            background: var(--gradient-haiti);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-haiti:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-lg {
+            padding: 20px 48px;
+            font-size: 1.1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .logo i {
+            font-size: 2rem;
+        }
+
+        .logo-flag {
+            display: flex;
+            gap: 5px;
+            margin-left: 10px;
+        }
+
+        .flag-blue, .flag-red {
+            width: 20px;
+            height: 12px;
+        }
+
+        .flag-blue {
+            background: #00209f;
+        }
+
+        .flag-red {
+            background: #d21034;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            margin-right: 40px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark);
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+            padding: 10px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn:hover {
+            background: var(--gray-light);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding-top: 180px;
+            padding-bottom: 120px;
+            background: var(--gradient-dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 30px;
+            color: white;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 50px;
+            color: var(--gray-light);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 32, 159, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 32, 159, 0.4);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 80px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 1rem;
+            color: var(--gray-light);
+            font-weight: 500;
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .features {
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 50px 40px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid var(--gray-light);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-light);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        /* ===== TEAM SECTION ===== */
+        .team {
+            background: var(--light);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+        }
+
+        .member-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: var(--gradient-haiti);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            color: white;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .member-name {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .member-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .member-role i {
+            color: var(--accent-haiti);
+        }
+
+        .member-bio {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .member-social a {
+            width: 40px;
+            height: 40px;
+            background: var(--gray-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .member-social a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* ===== HAITI INFO SECTION ===== */
+        .haiti-info {
+            background: linear-gradient(135deg, rgba(0, 32, 159, 0.05) 0%, rgba(210, 16, 52, 0.05) 100%);
+            border-top: 2px solid var(--accent-haiti);
+            border-bottom: 2px solid var(--accent-haiti);
+        }
+
+        .haiti-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            align-items: center;
+        }
+
+        .haiti-flag {
+            text-align: center;
+        }
+
+        .flag-large {
+            width: 200px;
+            height: 120px;
+            margin: 0 auto 30px;
+            display: flex;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .flag-large-blue {
+            flex: 1;
+            background: #00209f;
+        }
+
+        .flag-large-red {
+            flex: 1;
+            background: #d21034;
+        }
+
+        .haiti-details h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--accent-haiti);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .haiti-details h3 i {
+            color: #d21034;
+        }
+
+        .location-details {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .location-details li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            color: var(--dark);
+        }
+
+        .location-details li i {
+            position: absolute;
+            left: 0;
+            color: var(--accent-haiti);
+            font-size: 1.2rem;
+        }
+
+        /* ===== RESULTS SECTION ===== */
+        .results {
+            background: white;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .result-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .result-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .result-card .result-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .result-card .result-text {
+            font-size: 1.1rem;
+            color: var(--dark);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .result-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* ===== TESTIMONIALS SECTION ===== */
+        .testimonials {
+            background: var(--light);
+        }
+
+        .testimonials-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 60px 50px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            position: relative;
+            border: 1px solid var(--gray-light);
+        }
+
+        .testimonial-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--dark);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .author-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--gradient-haiti);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .author-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .author-info p {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        /* ===== PRICING SECTION ===== */
+        .pricing {
+            background: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 50px 40px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+            position: relative;
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.popular::before {
+            content: 'POPULAIRE';
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--primary);
+            color: white;
+            padding: 8px 35px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transform: rotate(45deg);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .pricing-card.popular:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .pricing-header {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .pricing-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .pricing-price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .pricing-period {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 50px;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            color: var(--gray);
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta {
+            background: var(--gradient-dark);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            color: var(--gray-light);
+            margin-bottom: 50px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: white;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .footer-about p {
+            color: var(--gray-light);
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--gray-light);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+            text-align: center;
+            color: var(--gray-light);
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+            .section-title h2 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 30px 0;
+                box-shadow: var(--shadow-lg);
+                gap: 0;
+                z-index: 1000;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-link {
+                display: block;
+                padding: 20px 0;
+                text-align: center;
+                font-size: 1.1rem;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .pricing-card.popular::before {
+                top: 10px;
+                right: -30px;
+                padding: 6px 30px;
+                font-size: 0.8rem;
+            }
+            .haiti-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 150px;
+                padding-bottom: 80px;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            .hero-stats {
+                gap: 40px;
+            }
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            .section-title p {
+                font-size: 1.1rem;
+            }
+            section {
+                padding: 80px 0;
+            }
+            .features-grid,
+            .pricing-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta h2 {
+                font-size: 2.8rem;
+            }
+            .cta p {
+                font-size: 1.2rem;
+            }
+            .feature-card,
+            .pricing-card,
+            .testimonial-card,
+            .team-member {
+                padding: 40px 30px;
+            }
+            .flag-large {
+                width: 150px;
+                height: 90px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .hero-stats {
+                gap: 30px;
+            }
+            .stat-number {
+                font-size: 2.2rem;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .btn {
+                padding: 14px 30px;
+                font-size: 0.95rem;
+            }
+            .btn-lg {
+                padding: 18px 40px;
+            }
+            .cta h2 {
+                font-size: 2.3rem;
+            }
+            .pricing-card.popular {
+                transform: none;
+            }
+            .pricing-card.popular:hover {
+                transform: translateY(-10px);
+            }
+            .pricing-card.popular::before {
+                top: 10px;
+                right: -25px;
+                padding: 5px 25px;
+                font-size: 0.7rem;
+            }
+            .member-avatar {
+                width: 120px;
+                height: 120px;
+                font-size: 2.5rem;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-crown"></i>
+                <span>Uncut Mastery</span>
+                <div class="logo-flag">
+                    <div class="flag-blue"></div>
+                    <div class="flag-red"></div>
+                </div>
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#accueil" class="nav-link active">Accueil</a></li>
+                    <li><a href="#formations" class="nav-link">Formations</a></li>
+                    <li><a href="#equipe" class="nav-link">Notre Équipe</a></li>
+                    <li><a href="#haiti" class="nav-link">Basé en Haïti</a></li>
+                    <li><a href="#resultats" class="nav-link">Résultats</a></li>
+                    <li><a href="#tarifs" class="nav-link">Tarifs</a></li>
+                </ul>
+                
+                <a href="#tarifs" class="btn btn-primary">Commencer</a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <div class="hero-badge">
+                    <i class="fas fa-globe-americas"></i> Business Global - Équipe Haïtienne
+                </div>
+                <h1>L'Excellence du E-commerce depuis Haïti</h1>
+                <p>Formations expertes en e-commerce dispensées par une équipe haïtienne talentueuse. Shopify, eBay, TikTok Shop : maîtrisez les plateformes internationales depuis les Caraïbes.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#tarifs" class="btn btn-primary btn-lg">
+                        <i class="fas fa-rocket"></i> Commencer Maintenant
+                    </a>
+                    <a href="#equipe" class="btn btn-haiti btn-lg">
+                        <i class="fas fa-users"></i> Rencontrer l'Équipe
+                    </a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">15K+</div>
+                        <div class="stat-text">Étudiants Satisfaits</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-text">Taux de Satisfaction</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2M+</div>
+                        <div class="stat-text">Ventes Générées</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-text">Online - Global</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="formations">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Nos Formations Expertes</h2>
+                <p>Programmes complets conçus par des experts haïtiens du e-commerce</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Shopify Mastery</h3>
+                    <p>Créez et optimisez des boutiques Shopify hautement convertissantes avec nos stratégies avancées.</p>
+                    <a href="#tarifs" class="btn btn-primary">En savoir plus</a>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>TikTok Shop Expert</h3>
+                    <p>Maîtrisez le marketing viral et maximisez vos ventes sur la plateforme TikTok Shop.</p>
+                    <a href="#tarifs" class="btn btn-primary">En savoir plus</a>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <h3>Sourcing Premium</h3>
+                    <p>Accédez à notre réseau exclusif de fournisseurs avec les meilleurs prix du marché.</p>
+                    <a href="#tarifs" class="btn btn-primary">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="equipe">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Notre Équipe Haïtienne</h2>
+                <p>Des experts passionnés qui vous accompagnent vers le succès en e-commerce</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member fade-in">
+                    <div class="member-avatar">JD</div>
+                    <h3 class="member-name">Jean Davidson</h3>
+                    <div class="member-role">
+                        <i class="fas fa-crown"></i> Fondateur & CEO
+                    </div>
+                    <p class="member-bio">
+                        Expert en e-commerce avec 8 ans d'expérience. A formé plus de 5,000 entrepreneurs à travers le monde. Spécialiste des stratégies Shopify et TikTok.
+                    </p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-member fade-in">
+                    <div class="member-avatar">SM</div>
+                    <h3 class="member-name">Sarah M. Louis</h3>
+                    <div class="member-role">
+                        <i class="fas fa-chart-line"></i> Directrice Marketing
+                    </div>
+                    <p class="member-bio">
+                        Spécialiste en marketing digital et growth hacking. A généré plus de $2M en ventes pour ses clients. Expertise en publicité Facebook et Google Ads.
+                    </p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-member fade-in">
+                    <div class="member-avatar">MP</div>
+                    <h3 class="member-name">Marc Pierre</h3>
+                    <div class="member-role">
+                        <i class="fas fa-boxes"></i> Expert Sourcing
+                    </div>
+                    <p class="member-bio">
+                        Maîtrise parfaite des chaînes d'approvisionnement internationales. Accès à plus de 500 fournisseurs fiables en Asie et en Europe.
+                    </p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Haiti Info Section -->
+    <section class="haiti-info" id="haiti">
+        <div class="container">
+            <div class="haiti-container">
+                <div class="haiti-flag fade-in">
+                    <div class="flag-large">
+                        <div class="flag-large-blue"></div>
+                        <div class="flag-large-red"></div>
+                    </div>
+                    <h3>Fierté Haïtienne</h3>
+                    <p>Business global, racines locales</p>
+                </div>
+                
+                <div class="haiti-details fade-in">
+                    <h3><i class="fas fa-map-marker-alt"></i> Basé en Haïti, Présent Partout</h3>
+                    <ul class="location-details">
+                        <li><i class="fas fa-globe"></i> <strong>Business 100% Online :</strong> Nous formons des entrepreneurs partout dans le monde</li>
+                        <li><i class="fas fa-users"></i> <strong>Équipe Haïtienne :</strong> Des experts locaux avec une expertise internationale</li>
+                        <li><i class="fas fa-clock"></i> <strong>Support 24/7 :</strong> Disponible en français, créole et anglais</li>
+                        <li><i class="fas fa-graduation-cap"></i> <strong>Formations Accessibles :</strong> Adaptées aux entrepreneurs des Caraïbes et d'ailleurs</li>
+                    </ul>
+                    <p style="color: var(--accent-haiti); font-weight: 600; margin-top: 20px;">
+                        <i class="fas fa-quote-left"></i> Nous prouvons que le talent n'a pas de frontières. 
+                        Depuis Haïti, nous formons des entrepreneurs à travers le monde entier.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results" id="resultats">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Résultats Concrets</h2>
+                <p>Des succès qui dépassent les frontières - les réalisations de nos étudiants</p>
+            </div>
+            
+            <div class="results-grid">
+                <div class="result-card fade-in">
+                    <div class="result-number">$12,450</div>
+                    <div class="result-text">Profit Shopify en 30 jours</div>
+                    <p>Résultat moyen de nos étudiants avec notre méthode Shopify avancée</p>
+                </div>
+                
+                <div class="result-card fade-in">
+                    <div class="result-number">$8,720</div>
+                    <div class="result-text">CA eBay mensuel</div>
+                    <p>Chiffre d'affaires généré grâce à nos stratégies d'optimisation eBay</p>
+                </div>
+                
+                <div class="result-card fade-in">
+                    <div class="result-number">$15,300</div>
+                    <div class="result-text">Revenue TikTok Shop</div>
+                    <p>Revenue en 15 jours avec notre approche marketing TikTok</p>
+                </div>
+                
+                <div class="result-card fade-in">
+                    <div class="result-number">50+</div>
+                    <div class="result-text">Pays Desservis</div>
+                    <p>Entrepreneurs formés dans plus de 50 pays à travers le monde</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Témoignages Internationaux</h2>
+                <p>Ce que disent nos étudiants à travers le monde</p>
+            </div>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-quote">
+                        "En tant qu'entrepreneur en France, j'ai été impressionné par la qualité des formations d'Uncut Mastery. L'équipe haïtienne a une expertise incroyable. J'ai lancé ma boutique Shopify et généré $8,000 de profit en deux mois seulement !"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PL</div>
+                        <div class="author-info">
+                            <h4>Pierre Lambert</h4>
+                            <p>Entrepreneur - Paris, France</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="tarifs">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Choisissez Votre Formule</h2>
+                <p>Investissements accessibles avec paiements adaptés aux Caraïbes</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <div class="pricing-header">
+                        <h3>Starter</h3>
+                        <div class="pricing-price">$497</div>
+                        <div class="pricing-period">Formation de base</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Formation Shopify complète</li>
+                        <li>Support communautaire</li>
+                        <li>Modèles de boutiques</li>
+                        <li>Liste de fournisseurs</li>
+                        <li>Certificat de complétion</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Choisir cette offre</a>
+                </div>
+                
+                <div class="pricing-card popular fade-in">
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <div class="pricing-price">$997</div>
+                        <div class="pricing-period">Formation complète</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Tout dans Starter</li>
+                        <li>Formations eBay & TikTok Shop</li>
+                        <li>Fournisseurs exclusifs</li>
+                        <li>Coaching individuel (4 sessions)</li>
+                        <li>Analyse de boutique</li>
+                        <li>Accès à vie aux mises à jour</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Choisir cette offre</a>
+                </div>
+                
+                <div class="pricing-card fade-in">
+                    <div class="pricing-header">
+                        <h3>Elite</h3>
+                        <div class="pricing-price">$1,997</div>
+                        <div class="pricing-period">Accompagnement VIP</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Tout dans Pro</li>
+                        <li>Coaching 1-on-1 illimité</li>
+                        <li>Stratégie personnalisée</li>
+                        <li>Analyse concurrentielle</li>
+                        <li>Support prioritaire 24/7</li>
+                        <li>Outils exclusifs</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Contactez-nous</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2>Prêt à Transformer Votre Vie ?</h2>
+                <p>Rejoignez notre communauté internationale d'entrepreneurs. Le e-commerce n'a pas de frontières, et votre succès non plus !</p>
+                
+                <div class="cta-buttons">
+                    <a href="#tarifs" class="btn btn-primary btn-lg">
+                        <i class="fas fa-shopping-cart"></i> Choisir ma formation
+                    </a>
+                    <a href="mailto:contact@uncutmastery.ht" class="btn btn-haiti btn-lg">
+                        <i class="fas fa-envelope"></i> Écrivez-nous
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Uncut Mastery</h3>
+                    <p>Formation e-commerce d'excellence par une équipe haïtienne. Business 100% online, expertise globale, racines caribéennes.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Formations</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Shopify Mastery</a></li>
+                        <li><a href="#">eBay Pro</a></li>
+                        <li><a href="#">TikTok Shop Expert</a></li>
+                        <li><a href="#">Sourcing Avancé</a></li>
+                        <li><a href="#">Marketing Digital</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Ressources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Tutoriels</a></li>
+                        <li><a href="#">Outils Gratuits</a></li>
+                        <li><a href="#">Fournisseurs</a></li>
+                        <li><a href="#">Communauté</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Haïti</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contact@uncutmastery.ht">contact@uncutmastery.ht</a></li>
+                        <li><a href="tel:+509XXXXXXXX">+509 XX XX XXXX</a></li>
+                        <li><a href="#">Pétion-Ville</a></li>
+                        <li><a href="#">Port-au-Prince, Haïti</a></li>
+                        <li><a href="#">Business 100% Online</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Uncut Mastery - Business Global depuis Haïti. Tous droits réservés.</p>
+                <p style="margin-top: 10px; font-size: 0.8rem; color: rgba(255,255,255,0.6);">
+                    <i class="fas fa-heart" style="color: #d21034;"></i> Fierté Haïtienne - Excellence Internationale
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Set active nav link based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if(window.scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements with .fade-in class
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
